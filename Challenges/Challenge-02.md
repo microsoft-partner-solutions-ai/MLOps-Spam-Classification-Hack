@@ -23,7 +23,7 @@ We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The
   - Set Agent Specification to `ubuntu-18.04`.
 - Add `Build` pipeline tasks
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required for the project.
-  - Add a task to get Azure ML Workspace connection using `Workspace.py` in `aml_code` folder. This will establish connection to Azure ML workspace by using your workspace details in `configuration/config.json` file.         
+  - Add a task to get Azure ML Workspace connection using `Workspace.py` in `aml_code` folder. This will establish connection to Azure ML workspace by using your workspace details in `config.json` file.         
   - Add a task to acquire the YouTube comments data using `PrepareTrainingData.py` in `aml_code` folder. This will load and extract the data required to train a classification model in the next steps.
   - Add a task to train binary classification model using `TrainOnLocal.py` in `aml_code` folder through the `sci-kit learn` library. This will build a model to classify comments as `spam` or `not_spam`.
   - Add a task to evaluate the model performance using `EvaluateModel.py` in `aml_code` folder. This will evaluate how well the model is doing by using evaluation metrics, which include confusion matrix, accuracy, precision, recall, and F1 scores. [Here's an explainer guide on what those metrics represent.](https://docs.microsoft.com/en-us/dynamics365/finance/finance-insights/confusion-matrix)

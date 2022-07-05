@@ -28,7 +28,7 @@ We can setup Continuous Deployment (CD) trigger for every `Release` pipeline. Th
 
 ## Success criteria
 
-- An end-to-end `Release` pipeline in Azure DevOps.
+- A `Release` pipeline with just a `Pre-Prod` stage is created in Azure DevOps.
 - A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
 
 ## Tips

@@ -38,7 +38,7 @@ We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The
 ## Success criteria
 
 - An end-to-end `Build` pipeline in Azure DevOps.
-- Forecasting model registered with the Azure ML Model Registry.
+- Spam Classification model registered with the Azure ML Model Registry.
 
 ## Tips
 

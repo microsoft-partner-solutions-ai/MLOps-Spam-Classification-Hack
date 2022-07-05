@@ -8,11 +8,11 @@ Use this challenge to perform tasks to confirm data has been extracted from sour
 
 ## Description
 
-- Write a Python snippet to validate that AdventureWorks data is indeed downloaded and extracted into `Data/` folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
+- Write a Python snippet to validate that YouTube data is indeed downloaded and extracted into `data/` folder. Do a preview of file count in the data folder. Additionally, you could also pick a csv file visualize the data.
 
 ## Success criteria
 
-- Count the number of CSV files extracted into `Data/` folder using a `Python script` in Azure DevOps pipeline. (This can be the same script used in [Challenge-01](./Challenge-01)).    
+- Count the number of CSV files extracted into `data/` folder using a `Python script` in Azure DevOps pipeline. (This can be the same script used in [Challenge-01](./Challenge-01)).    
 - Visualizing and exploring the data (using a python visualization library like `matplotlib` or `seaborn` or `plotly`).
 
 ## Tips

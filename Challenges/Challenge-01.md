@@ -25,7 +25,7 @@ You will use the scripts provided to load the dataset, preprocess the dataset, r
 ## Success Criteria
 
 - Understand the purposes and contents of the Python scripts under `aml_code`.
-- Count the number of CSV files extracted into `data/` folder LOCALLY using a Python script in VS Code or any popular IDE.
+- Display the top 10 rows of spam training data extracted into `data/training` folder LOCALLY using a Python script in VS Code or any popular IDE.
 - Binary classification model created locally using VS Code.
 - Classifier project imported into Azure DevOps.
 

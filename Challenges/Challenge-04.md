@@ -1,4 +1,4 @@
-# Challenge 4 – Create a Release Pipeline In Azure DevOps
+# Challenge 4 – Adding a production stage to the Release pipeline
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 

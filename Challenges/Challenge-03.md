@@ -1,4 +1,4 @@
-# Challenge 3 – Create a Unit Test Locally and in Azure DevOps
+# Challenge 3 – Create a release pipeline with a pre-production stage
 
 [< Previous Challenge](./Challenge-02.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-04.md)
 

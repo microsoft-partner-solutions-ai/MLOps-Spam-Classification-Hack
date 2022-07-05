@@ -28,7 +28,7 @@ We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The
   - Add a task to train binary classification model using `TrainOnLocal.py` in `aml_code` folder through the `sci-kit learn` library. This will build a model to classify comments as `spam` or `not_spam`.
   - Add a task to evaluate the model performance using `EvaluateModel.py` in `aml_code` folder. This will evaluate how well the model is doing by using evaluation metrics, which include confusion matrix, accuracy, precision, recall, and F1 scores. [Here's an explainer guide on what those metrics represent.](https://docs.microsoft.com/en-us/dynamics365/finance/finance-insights/confusion-matrix)
   - Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `aml_code` folder.    
-  - Add a task to score the model, to classify future comments using `score.py` in the `/scripts/scoring` folder.       
+  - Add a task to score the model. This will be the scrip that runs to classify future comments using `score.py` in the `/scripts/scoring` folder. The scoring script will be used to deploy directly to the ACI or AKS instance.    
   - Now you are at a point of creating an artifact for your `Release` pipeline. An artifact is the deployable component of your model or application. `Build Artifact` is one of the many artifact types. The following two tasks are required to create `Build artifact` in your `Build` pipeline. 
     - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`.
     - Use Publish Artifact task with `$(Build.ArtifactStagingDirectory)` as path to publish. 

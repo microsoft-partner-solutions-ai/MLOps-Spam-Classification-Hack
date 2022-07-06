@@ -30,4 +30,4 @@ In Azure DevOps, you can retrain the model on a schedule or when new data become
 
 ## Congratulations
 
-You have finished the challenges for this Hack. We are updating the content continuously. In the upcoming phase 2 of this hack content we will be extending this solution to encompass AKS Data Drift in Challenge 5 as well as incorporate other ML platforms, such as ONNX and mlflow. Stay tuned!
+You have finished the challenges for this Hack. 

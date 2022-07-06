@@ -19,11 +19,11 @@ Time series is a series of data points collected or indexed in time order at reg
 - Configure your Azure ML Workspace for the project.
   - **HINT:** Add workspace details in `config.json`. You can download it from portal too.
   - **NOTE:** Alternatively, you can configure your Azure ML Workspace by using Azure DevOps pipeline variables.
-- Now that you have environment setup, explore and run locally the python files in the folder `service/code/`. What are these files trying to do? What should be the order of execution? 
+- Now that you have environment setup, explore and run locally the python files in the folder `aml_code/`. What are these files trying to do? What should be the order of execution? 
 
 ## Success Criteria
 
-- Understand the contents of the python files under `service/code/`.
+- Understand the contents of the python files under `aml_code/`.
 - Count the number of CSV files extracted into `Data/` folder LOCALLY using a Python script in VS Code or any popular IDE.
 - Creating an ARIMA model locally using VS Code.
 - Forecasting project imported into Azure DevOps.

@@ -10,18 +10,19 @@ In Azure DevOps, you can retrain the model on a schedule or when new data become
 
 ## Description
 
-- Additional YouTube video comments data that was not included in the first iteration of the model can be found in the `data/retraining` folder. The hope is that this additional data will improve your model!
-    - Is updating the classifier code necessary? If yes, what needs to be changed? Check the training code in `classifier.py` in `scripts/training/` folder. The initial model was trained on data of three YouTube videos.
-    - Concatenate these two datasets/dataframes and build a classifier trained model on this bigger dataset.
+- To retrain your model, update the training code with new data.
+    - Pull up the training code in `transactions_arima.py` in `scripts/training/` folder. The initial model was trained on 2013 transactions data.
+    - Along with 2013 data, also read 2014 transactions data that was created in `service/code/AcquireData.py`.
+    - Concatenate these two datasets/dataframes and build an ARIMA trained model on this bigger dataset.
 - Re-run the `Build` pipeline to reflect the changes in training.
-- Re-run the `Release` pipeline with the latest build. If the new model has better evaluation metrics than the previous model, then a new web service is created for your retrained model.
+- Re-run the `Release` pipeline. If the new model has better evaluation metrics than the previous model, then a new web service is created for your retrained model.
 - Review artifacts and outputs from `Build` and `Release` pipelines.
 
 ## Success criteria
 
 - A retrained model (if necessary with better performance) is created and registered within the Azure ML Model Registry.
-- A “Healthy” ACI deployment for your retrained model is created under Azure ML Endpoints from Pre-prod stage.
-- A “Healthy” AKS deployment for your retrained model is created under Azure ML Endpoints from Prod stage.
+- A container image for your retrained model is created under Azure ML Images.
+- A “healthy” ACI deployment for your retrained model is created under Azure ML Endpoints.
 
 ## Learning resources
 
@@ -30,4 +31,4 @@ In Azure DevOps, you can retrain the model on a schedule or when new data become
 
 ## Congratulations
 
-You have finished the challenges for this Hack. 
+You have finished the challenges for this Hack. We are updating the content continuously. In the upcoming phase 2 of this hack content we will be extending this solution to encompass AKS Data Drift in Challenge 5 as well as incorporate other ML platforms, such as ONNX and mlflow. Stay tuned!

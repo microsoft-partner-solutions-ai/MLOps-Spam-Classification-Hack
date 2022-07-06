@@ -1,19 +1,16 @@
 # MLOps-Spam-Classification-Hack
 
 ## About This Repository
------
 This repository encompasses a "What the Hack" event that teaches participants how to use Azure MLOps tools through a classification use case.It consists of five challenges that break down the steps required to implement an MLOps workflow using Azure DevOps and Azure Machine Learning.
 
 Some key concepts include NLP, training a model using scikit-learn, deploying models to endpoints and containers, evaluating a classification model, and retraining a model.
 
 ## Introduction
------
 MLOps empowers data scientists and app developers to help bring ML/AI models to production. It enables you to track, version and re-use every asset in your ML lifecycle, and provides orchestration services to streamline managing this lifecycle. This hack will help you understand how to build a [Continuous Integration and Continuous Delivery (CI/CD) pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/apps/cd/azure/cicd-data-overview?view=azure-devops) for an AI application using Azure DevOps and Azure Machine Learning.
 
 The solution involved in the hack is built on a YouTube dataset to predict whether or not video comments are spam. However, the CI/CD process and methodology can be easily adapted for any AI scenario beyond classification.
 
 ## Learning Objectives
------
 In this hack you will solve a common challenge for companies to continuously deploy an AI model and maintain it in production. You will see how you can adopt standard engineering practices around DevOps and CICD process on ML lifecycle to get real business value.
 
 You are working with data consisting of comments from the top five most popular YouTube videos in 2015. Your job is to use this dataset to create a classification model that will determine whether future comments are spam or not. 
@@ -46,7 +43,6 @@ Some questions that might surface throughout this hack:
 -  [Challenge 5: Retraining and Model Evaluation](Challenge-05.md)
 
 ## Contributors
------
 - Ahmed Sherif
 - Amanda Wong
 - Shiva Chittamuru

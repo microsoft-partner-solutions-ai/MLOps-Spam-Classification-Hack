@@ -1,6 +1,0 @@
-{
-    "subscription_id": "<Azure-Subscription-ID>",
-    "resource_group": "<Azure-Resource-Group-Name>",
-    "workspace_name": "<AzureML-Workspace-Name>",
-    "location": "<Workspace-Location>"
-}

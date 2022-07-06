@@ -1,4 +1,4 @@
-# Challenge 4 – Create a Release Pipeline In Azure DevOps
+# Challenge 4 – Adding a production stage to the Release pipeline
 
 [< Previous Challenge](./Challenge-03.md) - **[Home](../README.md)** - [Next Challenge >](./Challenge-05.md)
 
@@ -16,21 +16,18 @@ We can setup Continuous Deployment (CID) trigger for every `Release` pipeline. T
 
 ## Description
 
-- Create a `Release` pipeline.
-- Add `Build Artifact` that you created in the [previous challenge](03-BuildPipeline.md).
-  - Set Agent Pool to `Azure Pipelines`.
-  - Set Agent Specification to `ubuntu-18.04`.
-- Add `Release` pipeline tasks:
+- Edit the existing `Release` pipeline and add a `Prod` stage. 
+- Add `Release` pipeline tasks to the `Prod` stage:
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required to deploy the forecasting model.
-  - Add a task to deploy the scoring image on ACI using `deployOnAci`.py in `service/code/` folder. A “healthy” ACI deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
-    - **NOTE:** ACI is recommended to use testing or pre-production stages. Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
-  - Add a task to test the ACI web service using `AciWebserviceTest.py` in `service/code/` folder. This allows you to run the web service on new data (or test data) to forecast demand for new items. 
+  - Add a task to deploy the model on AKS using `DeployToAks.py` in the `aml_code` folder. A “healthy” AKS deployment will be created under Azure ML Endpoints. It contains a REST-based Scoring URI/Endpoint that you can call using Postman or Swagger. 
+    - **NOTE:** Since bigger inferencing compute is needed in production for low latency and high throughput, it is recommended to use AKS cluster in production.
+  - Add a task to test the AKS web service using `AksWebserviceTest.py` in `aml_code` folder. This allows you to run the web service on new data (or test data) to classify new comments. 
     - **NOTE:** If the deployment fails or the web service is "unhealthy", check logs in Azure DevOps or Azure ML Studio for issues and additional information.
  
 ## Success Criteria
 
-- An end-to-end `Release` pipeline in Azure DevOps.
-- A “healthy” ACI deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
+- An end-to-end `Release` pipeline is created in Azure DevOps with `Pre-Prod` and `Prod` stages.
+- A “healthy” AKS deployment is created under Azure ML Endpoints, which can be confirmed to be operational by using a tool like [Postman](https://www.postman.com) or [Swagger](https://swagger.io).
 
 ## Tips
 

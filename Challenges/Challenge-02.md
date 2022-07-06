@@ -23,12 +23,12 @@ We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The
   - Set Agent Specification to `ubuntu-18.04`.
 - Add `Build` pipeline tasks
   - Add a task to setup environment by using `install_environment.sh` file in `environment_setup/` folder. This will install all the python modules required for the project.
-  - Add a task to get Azure ML Workspace connection using `Workspace.py` in `aml_code` folder. This will establish connection to Azure ML workspace by using your workspace details in `config.json` file.         
-  - Add a task to acquire the YouTube comments data using `PrepareTrainingData.py` in `aml_code` folder. This will load and extract the data required to train a classification model in the next steps.
-  - Add a task to train binary classification model using `TrainOnLocal.py` in `aml_code` folder through the `sci-kit learn` library. This will build a model to classify comments as `spam` or `not_spam`.
-  - Add a task to evaluate the model performance using `EvaluateModel.py` in `aml_code` folder. This will evaluate how well the model is doing by using evaluation metrics, which include confusion matrix, accuracy, precision, recall, and F1 scores. [Here's an explainer guide on what those metrics represent.](https://docs.microsoft.com/en-us/dynamics365/finance/finance-insights/confusion-matrix)
-  - Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `aml_code` folder.    
-  - Add a task to score the model. This will be the scrip that runs to classify future comments using `score.py` in the `/scripts/scoring` folder. The scoring script will be used to deploy directly to the ACI or AKS instance.    
+  - Add a task to get Azure ML Workspace connection using `Workspace.py` in `service/code/` folder. This will establish connection to Azure ML workspace by using your workspace details in `configuration/config.json` file.         
+  - Add a task to acquire time series transactions data using `AcquireData.py` in `service/code/` folder. This will download and extract the data required to train a forecasting model in the next steps.
+  - Add a task to train ARIMA forecasting model using `TrainOnLocal.py` in `service/code/` folder. This will build a model to forecast demand of items from AdventureWorks database.
+  - Add a task to evaluate the model performance using `EvaluateModel.py` in `service/code/` folder. This will evaluate how well the model is doing by using evaluation metrics such as R-squared and RMSE(Root mean squared error).
+  - Add a task to register the model in Azure ML Model Registry for model versioning using `RegisterModel.py` in `service/code/` folder.    
+  - Add a task to score the model, to forecast future transactions using `CreateScoringImage.py` in `service/code/` folder. This will create a scoring file.       
   - Now you are at a point of creating an artifact for your `Release` pipeline. An artifact is the deployable component of your model or application. `Build Artifact` is one of the many artifact types. The following two tasks are required to create `Build artifact` in your `Build` pipeline. 
     - Use Copy Files task to copy files from `$(Build.SourcesDirectory)` to `$(Build.ArtifactStagingDirectory)`.
     - Use Publish Artifact task with `$(Build.ArtifactStagingDirectory)` as path to publish. 
@@ -38,7 +38,7 @@ We can setup Continuous Integration (CI) trigger for every `Build` pipeline. The
 ## Success criteria
 
 - An end-to-end `Build` pipeline in Azure DevOps.
-- Spam Classification model and vectorizer registered with the Azure ML Model Registry.
+- Forecasting model registered with the Azure ML Model Registry.
 
 ## Tips
 

@@ -35,12 +35,12 @@ Some questions that might surface throughout this hack:
 
 ## Challenges
 -----
--  [Challenge 0: Prerequisities](Challenge-00.md)
--  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](Challenge-01.md)
--  [Challenge 2: Create a Build pipeline in Azure DevOps](Challenge-02.md)
--  [Challenge 3: Create a Unit Test Locally and in Azure DevOps](Challenge-03.md)
--  [Challenge 4: Create a Release pipeline in Azure DevOps](Challenge-04.md)
--  [Challenge 5: Retraining and Model Evaluation](Challenge-05.md)
+-  [Challenge 0: Prerequisities](./Challenges/Challenge-00.md)
+-  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](./Challenges/Challenge-01.md)
+-  [Challenge 2: Create a Build pipeline in Azure DevOps](./Challenges/Challenge-02.md)
+-  [Challenge 3: Create a Unit Test Locally and in Azure DevOps](./Challenges/Challenge-03.md)
+-  [Challenge 4: Create a Release pipeline in Azure DevOps](./Challenges/Challenge-04.md)
+-  [Challenge 5: Retraining and Model Evaluation](./Challenges/Challenge-05.md)
 
 ## Contributors
 - Ahmed Sherif

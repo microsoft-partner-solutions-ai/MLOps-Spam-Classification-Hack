@@ -10,19 +10,18 @@ In Azure DevOps, you can retrain the model on a schedule or when new data become
 
 ## Description
 
-- To retrain your model, update the training code with new data.
-    - Pull up the training code in `training.py` in `scripts/training/` folder. The initial model was trained on data of three YouTube videos.
-    - Additional YouTube video comments data that was not included in the first iteration of the model can be found in the `data/` folder. The hope is that this additional data will improve your model!
+- Additional YouTube video comments data that was not included in the first iteration of the model can be found in the `data/retraining` folder. The hope is that this additional data will improve your model!
+    - Is updating the classifier code necessary? If yes, what needs to be changed? Check the training code in `classifier.py` in `scripts/training/` folder. The initial model was trained on data of three YouTube videos.
     - Concatenate these two datasets/dataframes and build a classifier trained model on this bigger dataset.
 - Re-run the `Build` pipeline to reflect the changes in training.
-- Re-run the `Release` pipeline. If the new model has better evaluation metrics than the previous model, then a new web service is created for your retrained model.
+- Re-run the `Release` pipeline with the latest build. If the new model has better evaluation metrics than the previous model, then a new web service is created for your retrained model.
 - Review artifacts and outputs from `Build` and `Release` pipelines.
 
 ## Success criteria
 
 - A retrained model (if necessary with better performance) is created and registered within the Azure ML Model Registry.
-- A container image for your retrained model is created under Azure ML Images.
-- A “healthy” ACI deployment for your retrained model is created under Azure ML Endpoints.
+- A “Healthy” ACI deployment for your retrained model is created under Azure ML Endpoints from Pre-prod stage.
+- A “Healthy” AKS deployment for your retrained model is created under Azure ML Endpoints from Prod stage.
 
 ## Learning resources
 

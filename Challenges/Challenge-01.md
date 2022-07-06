@@ -20,6 +20,7 @@ You will use the scripts provided to load the dataset, preprocess the dataset, r
 - Configure your Azure ML Workspace for the project.
   - **HINT:** Add workspace details in `config.json`. You can download this file from the Azure Portal in the resource's overview page.
   - **NOTE:** Alternatively, you can configure your Azure ML Workspace by using Azure DevOps pipeline variables.
+<<<<<<< HEAD
 - Now that you have environment setup, explore and run locally the python files in the folder `aml_code`. What are these files trying to do? What should be the order of execution? 
 
 ## Success Criteria
@@ -28,6 +29,16 @@ You will use the scripts provided to load the dataset, preprocess the dataset, r
 - Display the top 10 rows of spam training data extracted into `data/training` folder LOCALLY using a Python script in VS Code or any popular IDE.
 - Binary classification model created locally using VS Code.
 - Classifier project imported into Azure DevOps.
+=======
+- Now that you have environment setup, explore and run locally the python files in the folder `aml_code/`. What are these files trying to do? What should be the order of execution? 
+
+## Success Criteria
+
+- Understand the contents of the python files under `aml_code/`.
+- Count the number of CSV files extracted into `Data/` folder LOCALLY using a Python script in VS Code or any popular IDE.
+- Creating an ARIMA model locally using VS Code.
+- Forecasting project imported into Azure DevOps.
+>>>>>>> 4432447f09eb2021a70a6563240ffcd5ed95b955
 
 ## Learning resources
 

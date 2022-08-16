@@ -36,10 +36,10 @@ Some questions that might surface throughout this hack:
 ## Challenges
 -----
 -  [Challenge 0: Prerequisities](./Challenges/Challenge-00.md)
--  [Challenge 1: Incorporate your locally trained machine learning code into Azure DevOps](./Challenges/Challenge-01.md)
--  [Challenge 2: Create a Build pipeline in Azure DevOps](./Challenges/Challenge-02.md)
--  [Challenge 3: Create a Unit Test Locally and in Azure DevOps](./Challenges/Challenge-03.md)
--  [Challenge 4: Create a Release pipeline in Azure DevOps](./Challenges/Challenge-04.md)
+-  [Challenge 1: Setup your local environment and run code locally](./Challenges/Challenge-01.md)
+-  [Challenge 2: Create a Workflow with Build Job in Azure DevOps](./Challenges/Challenge-02.md)
+-  [Challenge 3: Add Staging Job to your Workflow](./Challenges/Challenge-03.md)
+-  [Challenge 4: Add Production Job to your Workflow](./Challenges/Challenge-04.md)
 -  [Challenge 5: Retraining and Model Evaluation](./Challenges/Challenge-05.md)
 
 ## Contributors

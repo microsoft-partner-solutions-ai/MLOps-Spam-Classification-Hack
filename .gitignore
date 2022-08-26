@@ -1,0 +1,6 @@
+/kube_code/00_preprocess/data
+/kube_code/data/
+/kube_code/00_preprocess/config.json
+/kube_code/01_training/config.json
+/kube_code/02_register/config.json
+/kube_code/03_deploy/config.json

@@ -1,0 +1,7 @@
+azure-cli
+azureml-sdk[cli]
+scikit-learn
+joblib
+numpy
+pandas
+matplotlib

@@ -1,0 +1,6 @@
+{
+    "subscription_id": "35090f5f-7b8e-4a8a-b8b6-bf38a538e606",
+    "resource_group": "ml-amawong-rg",
+    "workspace_name": "amawong-ml-workspace",
+    "location": "west-us"
+}

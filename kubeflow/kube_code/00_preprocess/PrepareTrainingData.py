@@ -3,28 +3,44 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os, json, sys
-
 from azureml.core import Workspace, Datastore, Dataset
 from azureml.core.authentication import AzureCliAuthentication
+from azureml.core.authentication import ServicePrincipalAuthentication
 
-with open("./config.json") as f:
+with open(os.path.join(os.path.dirname(__file__),"config.json")) as f:
     config = json.load(f)
 
-workspace_name = config["workspace_name"]
-resource_group = config["resource_group"]
-subscription_id = config["subscription_id"]
-location = config["location"]
+def get_ws(tenant_id, service_principal_id,
+           service_principal_password, subscription_id, resource_group, workspace):  # noqa: E501
+    auth_args = {
+        'tenant_id': tenant_id,
+        'service_principal_id': service_principal_id,
+        'service_principal_password': service_principal_password
+    }
 
-cli_auth = AzureCliAuthentication()
+    ws_args = {
+        'auth': ServicePrincipalAuthentication(**auth_args),
+        'subscription_id': subscription_id,
+        'resource_group': resource_group
+    }
+    ws = Workspace.get(workspace, **ws_args)
+    return ws
 
-# Get workspace
-#ws = Workspace.from_config(auth=cli_auth)
-ws = Workspace.get(
-        name=workspace_name,
-        subscription_id=subscription_id,
-        resource_group=resource_group,
-        auth=cli_auth
-    )
+# workspace_name = config["workspace_name"]
+# resource_group = config["resource_group"]
+# subscription_id = config["subscription_id"]
+# location = config["location"]
+
+# cli_auth = AzureCliAuthentication()
+
+# # Get workspace
+# #ws = Workspace.from_config(auth=cli_auth)
+# ws = Workspace.get(
+#         name=workspace_name,
+#         subscription_id=subscription_id,
+#         resource_group=resource_group,
+#         auth=cli_auth
+#     )
 
 """Load labeled spam dataset."""
 

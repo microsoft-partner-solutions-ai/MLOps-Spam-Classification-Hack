@@ -1,0 +1,107 @@
+name: Build-Staging-Production
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+        
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: Build Job
+    
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+     
+      - uses: actions/checkout@v3
+      - name: install python dependencies
+        run: pip install -r environment_setup/requirements.txt
+
+      # Runs a set of commands using the runners shell
+      - name: Run Python Workspace.py
+        run: python aml_code/Workspace.py
+
+      # Runs a set of commands using the runners shell
+      - name: Run Prepare Training Data
+        run: python aml_code/PrepareTrainingData.py
+
+      # Runs a set of commands using the runners shell
+      - name: Train Data
+        run: python aml_code/TrainOnLocal.py
+      
+      # Runs a set of commands using the runners shell
+      - name: Evaluate Model
+        run: python aml_code/EvaluateModel.py
+            
+      # Runs a set of commands using the runners shell
+      - name: Register Model
+        run: python aml_code/RegisterModel.py
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          # Artifact name
+          name: spam-artifact
+          path: .
+          
+  staging:
+    name: Staging Job
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+     
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: spam-artifact
+          path: .
+      
+      - name: install python dependencies
+        run: pip install -r ./environment_setup/requirements.txt
+
+              # Runs a set of commands using the runners shell
+      - name: Deploy to Azure Container Instance
+        run: python ./aml_code/DeployToAci.py
+        
+      - name: Test ACI Endpoint
+        run: python ./aml_code/AciWebserviceTest.py
+ 
+  production:
+    name: Production Job
+    runs-on: ubuntu-latest
+    needs: staging
+    steps:
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
+     
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: spam-artifact
+          path: .
+      
+      - name: install python dependencies
+        run: pip install -r ./environment_setup/requirements.txt
+
+              # Runs a set of commands using the runners shell
+      - name: Deploy to Azure Kubernetes Cluster
+        run: python ./aml_code/DeployToAks.py
+        
+      - name: Test AKS Endpoint
+        run: python ./aml_code/AksWebserviceTest.py
+          
+  

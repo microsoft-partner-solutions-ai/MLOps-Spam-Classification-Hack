@@ -6,7 +6,7 @@ from azureml.core.authentication import AzureCliAuthentication
 print("SDK Version:", azureml.core.VERSION)
 # print('current dir is ' +os.curdir)
 
-with open("./config.json") as f:
+with open("./configuration/config.json") as f:
     config = json.load(f)
 print(config)
 

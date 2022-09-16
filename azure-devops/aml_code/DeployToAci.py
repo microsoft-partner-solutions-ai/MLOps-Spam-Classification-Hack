@@ -11,7 +11,7 @@ from azureml.core.model import InferenceConfig
 from azureml.core.webservice import AciWebservice
 
 
-with open("./config.json") as f:
+with open("./configuration/config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]

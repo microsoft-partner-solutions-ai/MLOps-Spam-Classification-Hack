@@ -4,7 +4,7 @@ from azureml.core import Workspace, Experiment, Run
 from azureml.core.model import Model
 from azureml.core.authentication import AzureCliAuthentication
 
-with open("./config.json") as f:
+with open("./configuration/config.json") as f:
     config = json.load(f)
 
 workspace_name = config["workspace_name"]
